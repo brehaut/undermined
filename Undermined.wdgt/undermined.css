@@ -1,0 +1,392 @@
+/* File: undermined.css
+ *
+ * Abstract: This is the styling for the 'undermined' widget
+ *
+ * Version 0.5
+ *
+ * � Copyright © 2005 Andrew Brehaut. Some rights reserved.
+ *   This work is licensed under a Creative Commons 
+ *   Attribuition-NonCommercial-ShareAlike 2.5
+ *   [http://creativecommons.org/licenses/by-nc-sa/2.5/]
+ *
+ * For any usage outside these terms, please contact the author via
+ *   http://brehaut.net/mailer/
+ */
+  
+body {
+    margin:         0px;
+    padding:        0px;
+}
+
+#front {
+    position:       absolute;
+    width:          180px;
+    height:         64px;
+}   
+
+#back {
+    padding:        5px;
+    width:          197px;
+    height:         215px;
+    position:       absolute;
+    background:     white;
+}
+
+/* overlay is for things that must appear above the board itself.
+ */
+#overlay {
+    position:           absolute;
+    top:                19px;
+    left:               22px;
+    bottom:             43px;
+    right:              22px;
+    background:         transparent;
+    z-index:            1000;
+    display:            none;
+}
+
+#overlay .message {
+    position:           absolute;
+    top:                50px;
+    width:              100%;
+    text-align:         center;
+}
+
+#win, #lose {
+    display:            none;
+    background:         white;
+}
+
+#overlay.won #win {
+    display:            block;
+}
+
+#overlay.lost #lose {
+    display:            block;
+}
+
+
+/* #gamearena is the table where all the game cells are located.
+ */
+ 
+#gamearena {
+    position:           absolute;
+    top:                19px;
+    left:               22px;
+
+    border-collapse:    collapse;
+    display:            table;   
+    
+    background-color:   #3A301F;
+    border:             solid  1px #2D5C29;
+    border-bottom-color:#35692F;
+    border-right-color:#35692F;
+}
+
+#gamearena > tr {
+    display:            table-row;
+    padding:            0px;
+    margin:             0px;
+    border:             none;
+}
+
+#gamearena > tr > td {
+    background:         transparent url(images/green.png) top left no-repeat;
+    padding:            0px;
+    margin:             0px;
+    color:              white;
+    width:              16px;
+    height:             16px;
+    text-align:         center;
+    font-family:        verdana;
+    font-size:          10px;
+    line-height:        1em;
+}
+
+#gamearena > tr > td > div {
+    display:            block;
+    width:              16px;
+    height:             16px;
+    font-family:        verdana;
+    font-size:          10px;
+    line-height:        1.3em;
+
+}
+
+#gamearena > tr > td:hover {
+    background:         transparent url(images/green-hover.png) top left no-repeat;;
+}
+
+/* Tile styles
+ */
+ 
+#gamearena > tr > td.revealed {
+    background:         transparent;
+}
+
+
+#gamearena > tr > td.revealed:hover {
+    background:         transparent;
+}
+
+.flagged {
+    background:         transparent url(images/flag.png) top left no-repeat;
+}
+
+.queried {
+
+}
+
+/* border
+ */
+#top-left {
+    top:                0px;
+    left:               0px;
+    
+    width:              22px;
+    height:             49px;
+    
+    background:         url(images/frame-top-left.png) top left no-repeat;
+
+}
+
+#top {
+    position:           absolute;
+    top:                0px;
+    left:               22px;
+    right:              22px;
+    
+    height:             19px;
+    padding:            10px 0px 12px 0px;
+    background:         url(images/frame-top.png) top left repeat-x;
+
+}
+
+#top-right {
+    position:           absolute;
+    top:                0px;
+    right:              0px;
+    
+    width:              22px;
+    height:             49px;
+    
+    background:         url(images/frame-top-right.png) top right no-repeat;
+
+}
+
+#left { 
+    position:           absolute;
+    top:                49px;
+    left:               0px;
+    bottom:             43px;
+    
+    width:              22px;
+    
+    background:         url(images/frame-left.png) bottom left repeat-y;
+}
+
+#middle {
+    position:           absolute;
+    top:                19px;
+    left:               22px;
+    bottom:             43px;
+    right:              22px;
+    background:         url(images/background-colour.png) top left repeat;
+}
+
+#right {
+    position:           absolute;
+    top:                49px;
+    right:               0px;
+    bottom:             43px;
+    
+    width:              22px;
+    
+    background:         url(images/frame-right.png) bottom right repeat-y;
+}
+
+#bottom-left { 
+    position:           absolute;
+    bottom:             0px;
+    left:               0px;
+    
+    width:              85px;
+    height:             43px;
+    
+    background:         url(images/frame-bottom-left.png) top left no-repeat;
+}
+
+#bottom {
+    position:           absolute;
+    bottom:             0px;
+    left:               85px;
+    right:              87px;
+    height:             43px;
+    
+    background:         url(images/frame-bottom.png) top left repeat-x;
+}
+
+#bottom-right {
+    position:           absolute;
+    bottom:             0px;
+    right:              0px;
+    
+    width:              87px;
+    height:             43px;
+    
+    background:         url(images/frame-bottom-right.png) top right no-repeat;
+}
+
+
+
+/* The two fields that have text appearing on the front side!
+ * Flags and Time!
+ */
+#flagsRemaining, #timeTaken {
+    position:           absolute;
+    bottom:             20px;
+    width:              34px;
+    height:             9px;
+    font:               9px verdana;
+    overflow:           hidden;
+    text-align:         right;
+    color:              #699738;
+    line-height:        1.0;
+}
+
+#flagsRemaining {
+    left:               36px;
+}
+
+#timeTaken {
+    right:              30px;
+}
+
+/* Game controls
+ */
+ 
+#newGame {
+    cursor:             pointer;
+    text-align:         center;
+}
+ 
+/* the dashboard flip control */
+.flip {
+    position:absolute;
+    bottom:18px;
+    right:12px;
+    width:13px;
+    height:13px;
+}
+#flip {
+    opacity:0;
+    background:url(file:///System/Library/WidgetResources/ibutton/black_i.png) no-repeat top left;
+    z-index:8000;
+}
+#fliprollie {
+    display:none;
+    opacity:0.25;
+    background:url(file:///System/Library/WidgetResources/ibutton/black_rollie.png) no-repeat top left;
+    z-index:7999;
+}
+#back {
+    position:           absolute;
+    display:none;
+    font-size:          9pt;
+} 
+.doneButton {
+    position:           absolute;
+    bottom:             10px;
+    right:              15px;
+    z-index:            7999;        
+} 
+
+/*  Reverse side styling.
+ */ 
+#back h3, h4 { display:inline;} 
+
+#back ul {
+    padding:            0px;
+    margin:             0px;
+    text-indent:        0px;
+}
+
+#back li {
+    text-indent:        0px;
+    margin:             0px;
+    padding:            0px;
+    float:              left;
+    padding-right:      7px;
+    padding-left:       0px;
+    list-style:         none;
+}
+
+#back li span {
+    padding-left:       5px;
+}
+
+#back li > div.tabcontent {
+    display:            none;
+    position:           absolute;
+    left:               5px;
+    width:              197px;
+}
+
+#back li > div.vis {
+    display:            block;
+}
+
+label {
+    clear:              both;
+    float:              left;
+    line-height:        1.8em;
+    width:              40%;
+}
+
+input {
+    width:               30px;
+    float:              left;
+}
+
+select {
+    float:              left;
+}
+
+.clearer { clear: both; }
+
+
+/* scoreboard */
+
+table#scores {    
+    width:              99%;
+    border:             1px solid black;
+    border-collapse:    collapse;
+    font:               7pt Verdana;
+}
+
+table#scores th {
+    font:               7pt Verdana;
+    font-wight:         bold;
+    border-bottom:      1px solid black;
+}
+
+table#scores tr {
+    height:             12px;
+}
+
+table#scores tr.even {
+    background:         #eaf0ff;
+}
+
+table#scores td {
+    border-right:       1px solid;    
+    width:              30%;
+    height:             12px;
+}
+
+table #scores td + td {
+    border-left:       1px solid;
+    border-right:       none;
+}
+
+

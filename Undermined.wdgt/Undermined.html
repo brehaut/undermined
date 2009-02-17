@@ -1,0 +1,202 @@
+
+<!--
+
+File: undermined.html
+
+Abstract: Minesweeper style game with nice graphics and tidy code.
+
+Version: 0.5
+
+� Copyright © 2005 Andrew Brehaut. All rights reserved.
+
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>Undermined</title>    
+       
+        <script language="JavaScript" 
+                type="text/javascript"
+                src="cookies.js"
+                charset="utf-8" />
+        </script>        
+        <script language="JavaScript" 
+                type="text/javascript"
+                src="game.js"
+                charset="utf-8" />
+        </script>
+        <script language="JavaScript" 
+                type="text/javascript"
+                src="widget.js"
+                charset="utf-8" />
+        </script>
+        
+        <style type="text/css" media="screen">
+            @import "undermined.css";
+        </style>
+    </head>
+    
+    <body>
+    
+    
+        <div id="front" onmousemove='mousemove(event);' onmouseout='mouseexit(event);'>
+        
+            <!-- top -->
+            <div id="top-left"> </div>
+            <div id="top"> </div>
+            <div id="top-right"> </div>
+            
+            <!-- sides -->
+            <div id="left"> </div>
+            <div id="middle"> </div>
+            <div id="right"> </div>
+            
+            <!-- bottom -->
+            <div id="bottom-left">
+                <div id="flagsRemaining"> </div>
+            </div>
+            <div id="bottom">                <a id="newGame" accesskey="n">new</a>   </div>
+            <div id="bottom-right">
+                <div id="timeTaken"> </div>
+            </div>
+                        
+            <div class='flip' id='flip'
+                 onclick='showBack(event);' 
+                 onmouseover='enterflip(event);' 
+                 onmouseout='exitflip(event)';>
+            </div>
+            
+                        <table id="gamearena">
+                <!-- this area is empty because it is populated by the game so 
+                     that you can have varying sized mine fields
+                 -->
+            </table>
+            
+            <div id="overlay">
+                <div id="win" class="message">
+                    Winner!
+                </div>
+                
+                <div id="lose" class="message">
+                    Loser!
+                </div>
+            </div>
+            
+            <div class='flip' id='fliprollie'></div>
+        </div> <!-- end of front -->
+        
+        
+        <div  id="back">
+            <h3>Undermined</h3>
+            <h4><a href="http://brehaut.net/code/">brehaut.net</a></h4>
+            <ul>
+                <li class="tab"><span class="tabitem">Preferences</span>
+                    <div class="tabcontent vis">
+                        <form action="javascript:">
+                            <fieldset>
+                                <label for="sizeField">Board:</label>
+                                <select id="sizeField" name="sizeField">
+                                    <option value="s">Small</option>
+                                    <option value="m">Medium</option>
+                                    <option value="l">Large</option>
+                                    <option value="c">Custom…</option>
+                                </select>
+                                
+    
+                                <label for="numColsField">Columns</label>
+                                <input id="numColsField" name="numColsField" disabled="disabled" /></br>
+                                <label for="numRowsField">Rows</label>
+                                <input id="numRowsField" name="numRowsField" disabled="disabled" /></br>
+                                <div class="clearer"> </div>
+                            </fieldset>
+                            
+                            <fieldset>
+                                <label for="difficultyField">Difficulty:</label>
+                                <select id="difficultyField" name="difficultField">
+                                    <option value="n">Normal</option>
+                                    <option value="d">Difficult</option>
+                                    <option value="i">Insane</option>
+                                    <option value="c">Custom…</option>
+                                </select>
+    
+                                <label for="numMinesField">Mines</label>
+                                <input id="numMinesField" name="numMinesField"
+                                       disabled="disabled" />  
+                                <div class="clearer"> </div>
+                            </fieldset>
+                            check for updates
+                        </form>
+                    </div>
+                </li>
+                
+                <li class="tab"><span class="tabitem">Scores</span>
+                    <div class="tabcontent">
+                        <table id="scores">
+                        <thead>
+                            <th>Small</th> <th>Medium</th> <th>Large</th>
+                        </thead>
+                        
+                        <tr class="odd">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="even">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="odd">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="even">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="odd">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="even">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="odd">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="even">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="odd">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="even">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        
+                        </table>
+                    </div>
+                </li>
+            <div class="doneButton" onclick='hideBack();'>Done</div>
+        </div>
+
+
+    </body>
+</html>
